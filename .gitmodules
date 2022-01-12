@@ -1,0 +1,3 @@
+[submodule "cs352/group-project"]
+	path = cs352/group-project
+	url = git@github.com:detjensrobert/cs352-usability-group-project.git
