@@ -13,7 +13,7 @@ header-includes:
 
 \begin{center}
 \fcodebox{
-  \underline{$\subname{KeyGen}$:} \\
+  \underline{$\KeyGen$:} \\
   \> do \\
   \> \> $k \gets \bits^\lambda$ \\
   \> until $k \ne 0$ \\
@@ -32,14 +32,14 @@ or $\L_{ots-R}$, as defined below:
 
 \titlecodebox{$\lib{ots-L}$}{
   \underline{$\subname{Eavesdrop}(m_L, m_R \in \bits^\lambda)$:} \\
-  \> $k \gets \subname{KeyGen}$ \\
+  \> $k \gets \KeyGen$ \\
   \> $c := k \oplus m_L$ \\
   \> return $c$
 }
 \qquad
 \titlecodebox{$\lib{ots-R}$}{
   \underline{$\subname{Eavesdrop}(m_L, m_R \in \bits^\lambda)$:} \\
-  \> $k \gets \subname{KeyGen}$ \\
+  \> $k \gets \KeyGen$ \\
   \> $c := k \oplus m_R$ \\
   \> return $c$
 }
@@ -76,21 +76,21 @@ one-time secrecy.
     \> $\M = \Sigma.\M$ \\
     \> $\C = \Sigma.\C$ \\
 
-    \underline{$\subname{KeyGen}()$:} \\
+    \underline{$\KeyGen()$:} \\
     \> $k_1 \gets \Sigma.\K$ \\
     \> $k_2 \gets \Sigma.\K$ \\
     \> return $(k_1, k_2)$
   }
   \qquad
   \codebox{
-    \underline{$\subname{Enc}((k_1, k_2), m)$:} \\
+    \underline{$\Enc((k_1, k_2), m)$:} \\
     \> $c_1 := \Sigma.\Enc(k_1, m)$ \\
     \> $c_2 := \Sigma.\Enc(k_2, m)$ \\
     \> return $(c_1, c_2)$
   }
   \qquad
   \codebox{
-    \underline{$\subname{Dec}((k_1, k_2), (c_1, c_2))$:} \\
+    \underline{$\Dec((k_1, k_2), (c_1, c_2))$:} \\
     \> $m_1 := \Sigma.\Dec(k_1, c_1)$ \\
     \> $m_2 := \Sigma.\Dec(k_2, c_2)$ \\
     \> if $m_1 \ne m_2$ return \bit{err} \\
@@ -105,15 +105,15 @@ indistinguishable:
 \begin{center}
 \titlecodebox{$\lib{ots-L}^{\Sigma^2}$}{
   \underline{$\subname{Eavesdrop}(m_L, m_R \in \Sigma^2.\M)$:} \\
-  \> $k_1, k_2 := \Sigma^2.KeyGen$ \\
-  \> $c_1, c_2 := \Sigma^2.Enc((k_1, k_2), m_L)$ \\
+  \> $k_1, k_2 := \Sigma^2.\KeyGen$ \\
+  \> $c_1, c_2 := \Sigma^2.\Enc((k_1, k_2), m_L)$ \\
   \> return $(c_1, c_2)$
 }
 $\equiv$
 \titlecodebox{$\lib{ots-R}^{\Sigma^2}$}{
   \underline{$\subname{Eavesdrop}(m_L, m_R \in \Sigma^2.\M)$:} \\
-  \> $k_1, k_2 := \Sigma^2.KeyGen$ \\
-  \> $c_1, c_2 := \Sigma^2.Enc((k_1, k_2), m_R)$ \\
+  \> $k_1, k_2 := \Sigma^2.\KeyGen$ \\
+  \> $c_1, c_2 := \Sigma^2.\Enc((k_1, k_2), m_R)$ \\
   \> return $(c_1, c_2)$
 }
 \end{center}
@@ -125,8 +125,8 @@ $\lib{ots-R}^{\Sigma^2}$ using the known-good $\lib{ots-L/R}^{\Sigma}$:
 \scalebox{0.8}{
   \titlecodebox{$\lib{ots-L}^{\Sigma^2}$}{
     \underline{$\subname{Eavesdrop}(m_L, m_R)$:} \\
-    \> \highlightline{$k_1, k_2 := \Sigma^2.KeyGen$} \\
-    \> \highlightline{$c_1, c_2 := \Sigma^2.Enc((k_1, k_2), m_L)$} \\
+    \> \highlightline{$k_1, k_2 := \Sigma^2.\KeyGen$} \\
+    \> \highlightline{$c_1, c_2 := \Sigma^2.\Enc((k_1, k_2), m_L)$} \\
     \> return $(c_1, c_2)$
   }
 
@@ -135,8 +135,8 @@ $\lib{ots-R}^{\Sigma^2}$ using the known-good $\lib{ots-L/R}^{\Sigma}$:
     \underline{$\subname{Eavesdrop}(m_L, m_R)$:} \\
     \> \highlightline{$k_1 \gets \Sigma.\K$} \\
     \> \highlightline{$k_2 \gets \Sigma.\K$} \\
-    \> \highlightline{$c_1 := \Sigma.Enc(k_1, m_L)$} \\
-    \> \highlightline{$c_2 := \Sigma.Enc(k_2, m_L)$} \\
+    \> \highlightline{$c_1 := \Sigma.\Enc(k_1, m_L)$} \\
+    \> \highlightline{$c_2 := \Sigma.\Enc(k_2, m_L)$} \\
     \> return $(c_1, c_2)$
   }
 
@@ -151,7 +151,7 @@ $\lib{ots-R}^{\Sigma^2}$ using the known-good $\lib{ots-L/R}^{\Sigma}$:
   \titlecodebox{$\lib{ots-L}^{\Sigma}$}{
     \underline{$\subname{Eavesdrop}_\Sigma(m_L, m_R)$:} \\
     \> $k \gets \Sigma.\K$ \\
-    \> $c := \Sigma.Enc(k, m_L)$ \\
+    \> $c := \Sigma.\Enc(k, m_L)$ \\
     \> return $c$
   }
 }
@@ -159,7 +159,7 @@ $\lib{ots-R}^{\Sigma^2}$ using the known-good $\lib{ots-L/R}^{\Sigma}$:
 
 The first step inlines `KeyGen` and `Enc` from $\Sigma^2$ as defined into
 `Eavesdrop`, which has no functionality change. Then, we pull out both pairs of
-$\Sigma$`.KeyGen` & $\Sigma$`.Enc` into `Eavesdrop`$_\Sigma$ in
+$\Sigma$`.\KeyGen` & $\Sigma$`.\Enc` into `Eavesdrop`$_\Sigma$ in
 $\lib{ots-L}^{\Sigma}$ as defined for $\Sigma$, again with no functionality
 change as
 
@@ -176,7 +176,7 @@ change as
   \titlecodebox{$\mathhighlight{\lib{ots-R}^{\Sigma}}$}{
     \underline{$\subname{Eavesdrop}_\Sigma(m_L, m_R)$:} \\
     \> $k \gets \Sigma.\K$ \\
-    \> $c := \Sigma.Enc(k, \mathhighlight{m_R})$ \\
+    \> $c := \Sigma.\Enc(k, \mathhighlight{m_R})$ \\
     \> return $c$
   }
 
@@ -185,16 +185,16 @@ change as
     \underline{$\subname{Eavesdrop}(m_L, m_R)$:} \\
     \> \highlightline{$k_1 \gets \Sigma.\K$} \\
     \> \highlightline{$k_2 \gets \Sigma.\K$} \\
-    \> \highlightline{$c_1 := \Sigma.Enc(k_1, m_R)$} \\
-    \> \highlightline{$c_2 := \Sigma.Enc(k_2, m_R)$} \\
+    \> \highlightline{$c_1 := \Sigma.\Enc(k_1, m_R)$} \\
+    \> \highlightline{$c_2 := \Sigma.\Enc(k_2, m_R)$} \\
     \> return $(c_1, c_2)$
   }
 
   $\equiv$
   \titlecodebox{$\lib{ots-L}^{\Sigma^2}$}{
     \underline{$\subname{Eavesdrop}(m_L, m_R)$:} \\
-    \> \highlightline{$k_1, k_2 := \Sigma^2.KeyGen$} \\
-    \> \highlightline{$c_1, c_2 := \Sigma^2.Enc((k_1, k_2), m_R)$} \\
+    \> \highlightline{$k_1, k_2 := \Sigma^2.\KeyGen$} \\
+    \> \highlightline{$c_1, c_2 := \Sigma^2.\Enc((k_1, k_2), m_R)$} \\
     \> return $(c_1, c_2)$
   }
 }
@@ -210,15 +210,15 @@ $\Sigma^2$.
 \scalebox{0.8}{
   \titlecodebox{$\lib{ots-L}^{\Sigma^2}$}{
     \underline{$\subname{Eavesdrop}(m_L, m_R)$:} \\
-    \> $k_1, k_2 := \Sigma^2.KeyGen$ \\
-    \> $c_1, c_2 := \Sigma^2.Enc((k_1, k_2), m_R)$ \\
+    \> $k_1, k_2 := \Sigma^2.\KeyGen$ \\
+    \> $c_1, c_2 := \Sigma^2.\Enc((k_1, k_2), m_R)$ \\
     \> return $(c_1, c_2)$
   }
   $\equiv$
   \titlecodebox{$\lib{ots-R}^{\Sigma^2}$}{
     \underline{$\subname{Eavesdrop}(m_L, m_R)$:} \\
-    \> $k_1, k_2 := \Sigma^2.KeyGen$ \\
-    \> $c_1, c_2 := \Sigma^2.Enc((k_1, k_2), m_R)$ \\
+    \> $k_1, k_2 := \Sigma^2.\KeyGen$ \\
+    \> $c_1, c_2 := \Sigma^2.\Enc((k_1, k_2), m_R)$ \\
     \> return $(c_1, c_2)$
   }
 }

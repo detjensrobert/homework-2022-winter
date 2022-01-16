@@ -14,7 +14,7 @@
 % indistinguishability operator
 % http://tex.stackexchange.com/questions/22168/triple-approx-and-triple-approx-with-a-straight-middle-line
 \newcommand{\indist}{  \mathrel{\vcenter{\offinterlineskip
-  \hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}}}}
+    \hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}}}}
 \renewcommand{\cong}{\indist}
 
 
@@ -53,12 +53,12 @@
 \usepackage{varwidth}
 
 \newcommand{\codebox}[1]{%
-        \begin{varwidth}{\linewidth}%
-        \begin{tabbing}%
-            ~~~\=\quad\=\quad\=\quad\=\kill % initialize tabstops
-            #1
-        \end{tabbing}%
-        \end{varwidth}%
+    \begin{varwidth}{\linewidth}%
+    \begin{tabbing}%
+        ~~~\=\quad\=\quad\=\quad\=\kill % initialize tabstops
+        #1
+    \end{tabbing}%
+    \end{varwidth}%
 }
 \newcommand{\titlecodebox}[2]{%
     \fboxsep=0pt%
@@ -98,6 +98,8 @@
     \hspace*{-\fboxsep}\basehighlight{#1}%
 %}
 }
+\newcommand{\hl}[1]{\highlightline{#1}}
+\newcommand{\mhl}[1]{\mathhighlight{#1}}
 
 %% bits
 \newcommand{\bit}[1]{\textcolor{bitcolor}{\texttt{\upshape #1}}}
