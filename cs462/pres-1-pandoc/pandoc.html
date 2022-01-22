@@ -82,7 +82,7 @@
     code span.vs { color: #4070a0; } /* VerbatimString */
     code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/solarized.css" id="theme">
 </head>
 <body>
   <div class="reveal">
@@ -264,57 +264,37 @@
 </section>
 <section id="latex-math" class="slide level2">
 <h2><span class="math inline">\(\LaTeX\)</span> Math</h2>
-<p>Surround it with $s:</p>
+<p>Surround it with <code>$</code>s:</p>
 <p><code>$\int \frac{5x + 6}{3} dx$</code></p>
 <p><span class="math display">\[\int \frac{5x + 6}{3} dx\]</span></p>
 </section>
 <section id="citations" class="slide level2">
 <h2>Citations</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> <span class="at">-s</span> example.md <span class="at">-o</span> example.pdf <span class="at">--citeproc</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>                    <span class="co"># if on ubuntu, --filter=pandoc-citeproc</span></span></code></pre></div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="sourceCode" id="cb6"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> example.bib</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> apa.csl</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>This is just some sample text to make this</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>look like an actual paper <span class="co">[</span><span class="ot">@example</span><span class="co">]</span>.</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>According to @example, you can also do</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>inline citations.</span></code></pre></div>
+<p><code>example.md</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="an">bibliography:</span><span class="co"> example.bib</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="an">csl:</span><span class="co"> apa.csl</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>This is just some sample text to make this</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>look like an actual paper <span class="co">[</span><span class="ot">@example</span><span class="co">]</span>.</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>According to @example, you can also do</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>inline citations.</span></code></pre></div>
 </div><div class="column" style="width:50%;">
-<div class="sourceCode" id="cb7"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">example</span>,</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>     = {Example entry},</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>    = {Bar, Foo},</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>   = {Example Site},</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>     = {Oct},</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span> = {Nobody},</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>      = {2021}</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><code>example.bib</code></p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bibtex"><code class="sourceCode bibtex"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">example</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">title</span>     = {Example entry},</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">author</span>    = {Bar, Foo},</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">journal</span>   = {Example Site},</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">month</span>     = {Oct},</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">publisher</span> = {Nobody},</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">year</span>      = {2021}</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 </div>
-</section>
-<section id="bibtex" class="slide level2">
-<h2>BibTeX</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> example.bib</span></span></code></pre></div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>OSU Library search</p>
-<p><img data-src="images/library-bibtex.png" /></p>
-</div><div class="column" style="width:50%;">
-<p>Citation Machine</p>
-<p><img data-src="images/cm-bibtex.png" /></p>
-</div>
-</div>
-</section>
-<section id="csl" class="slide level2">
-<h2>CSL</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> apa.csl</span></span></code></pre></div>
-<p>CSLs are styles for BibTeX, from the <a href="https://github.com/citation-style-language/styles">CSL Github repo</a></p>
-<p>Tells Pandoc how to format citations &amp; Works Cited</p>
-<p>Need to use a different style? Just swap it out!</p>
 </section>
 <section id="how-it-looks" class="slide level2">
 <h2>How it looks</h2>
@@ -328,23 +308,43 @@
 </div>
 </div>
 </section>
+<section id="bibtex" class="slide level2">
+<h2>BibTeX</h2>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bibliography</span><span class="kw">:</span><span class="at"> example.bib</span></span></code></pre></div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>OSU Library search</p>
+<p><img data-src="images/library-bibtex.png" /></p>
+</div><div class="column" style="width:50%;">
+<p>Citation Machine</p>
+<p><img data-src="images/cm-bibtex.png" /></p>
+</div>
+</div>
+</section>
+<section id="csl" class="slide level2">
+<h2>CSL</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">csl</span><span class="kw">:</span><span class="at"> apa.csl</span></span></code></pre></div>
+<p>CSLs are styles for BibTeX, from the <a href="https://github.com/citation-style-language/styles">CSL Github repo</a></p>
+<p>Tells Pandoc how to format citations</p>
+<p>Need to use a different style? Just swap it out!</p>
+</section>
 <section id="raw-latex" class="slide level2">
 <h2>Raw <span class="math inline">\(\LaTeX\)</span></h2>
 <p>Since <code>pandoc</code> goes from Markdown -&gt; <span class="math inline">\(\LaTeX\)</span> -&gt; PDF, take advantage of that!</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Individual Contributions</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mark Ser</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>\fbox{</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  \begin{minipage}{\textwidth}</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    \includegraphics<span class="co">[</span><span class="ot">page=1,width=0.90\textwidth</span><span class="co">]</span>{wics/wic-mark-ser.pdf}</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  \end{minipage}</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>\includepdf<span class="co">[</span><span class="ot">pages=2-,frame,scale=0.85,pagecommand={}</span><span class="co">]</span>{wics/wic-mark-ser.pdf}</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Robert Detjens</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>etc...</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Individual Contributions</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mark Ser</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>\fbox{</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  \begin{minipage}{\textwidth}</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    \includegraphics<span class="co">[</span><span class="ot">page=1,width=0.90\textwidth</span><span class="co">]</span>{wics/wic-mark-ser.pdf}</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  \end{minipage}</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>\includepdf<span class="co">[</span><span class="ot">pages=2-,frame,scale=0.85,pagecommand={}</span><span class="co">]</span>{wics/wic-mark-ser.pdf}</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">## Robert Detjens</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>etc...</span></code></pre></div>
 </section>
 <section id="wic-includes" class="slide level2">
 <h2>WIC Includes</h2>
@@ -357,15 +357,15 @@
 </section>
 <section id="linux" class="slide level2">
 <h2>Linux</h2>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arch / Manjaro</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> pacman <span class="at">-Sy</span> pandoc texlive-most</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ubuntu &amp; derivatives</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install pandoc pandoc-citeproc <span class="dt">\</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>                 texlive texlive-latex-extra</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Fedora</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf install pandoc pandoc-citeproc texlive</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Arch / Manjaro</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> pacman <span class="at">-Sy</span> pandoc texlive-most</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ubuntu &amp; derivatives</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install pandoc pandoc-citeproc <span class="dt">\</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                 texlive texlive-latex-extra</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Fedora</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> dnf install pandoc pandoc-citeproc texlive</span></code></pre></div>
 </section>
 <section id="windows" class="slide level2">
 <h2>Windows</h2>
@@ -375,15 +375,15 @@
 </section></section>
 <section id="how-to-use" class="title-slide slide level1">
 <h1>How to use?</h1>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> some-document.md <span class="at">-o</span> some-document.pdf</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pandoc</span> some-document.md <span class="at">-o</span> some-document.pdf</span></code></pre></div>
 <p>Make your lives easier with a shell alias:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md2pdf ()</span> <span class="kw">{</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pandoc</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span> <span class="at">-o</span> <span class="st">&quot;</span><span class="va">${1</span><span class="op">%%</span>.md<span class="va">}</span><span class="st">.pdf&quot;</span> <span class="va">${@</span><span class="op">:</span><span class="dv">2</span><span class="va">}</span> <span class="at">-V</span> geometry:margin=1in <span class="dt">\</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">--citeproc</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#      --filter=pandoc-citeproc instead on ubuntu / fedora</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ex">md2pdf</span> some-document.md  <span class="co"># creates some-document.pdf</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">md2pdf ()</span> <span class="kw">{</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">pandoc</span> <span class="st">&quot;</span><span class="va">$1</span><span class="st">&quot;</span> <span class="at">-o</span> <span class="st">&quot;</span><span class="va">${1</span><span class="op">%%</span>.md<span class="va">}</span><span class="st">.pdf&quot;</span> <span class="va">${@</span><span class="op">:</span><span class="dv">2</span><span class="va">}</span> <span class="at">-V</span> geometry:margin=1in <span class="dt">\</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">--citeproc</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="co">#      --filter=pandoc-citeproc instead on ubuntu / fedora</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ex">md2pdf</span> some-document.md  <span class="co"># creates some-document.pdf</span></span></code></pre></div>
 </section>
 
 <section id="demo" class="title-slide slide level1">
@@ -442,7 +442,7 @@
 
         // Add the current slide number to the URL hash so that reloading the
         // page/copying the URL will return you to the same slide
-        hash: false,
+        hash: true,
 
         // Start with 1 for the hash rather than 0
         hashOneBasedIndex: false,
@@ -451,7 +451,7 @@
         respondToHashChanges: true,
 
         // Push each slide change to the browser history
-        history: true,
+        history: false,
 
         // Enable keyboard shortcuts for navigation
         keyboard: true,

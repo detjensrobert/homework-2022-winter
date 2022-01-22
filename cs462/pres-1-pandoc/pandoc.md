@@ -5,9 +5,9 @@ author:
   - Robert Detjens
 date: 1/21/22
 
-theme: white
+theme: solarized
 controls: false
-history: true
+hash: true
 
 width: 1600
 height: 900
@@ -182,7 +182,7 @@ have a title page with that info and be double-spaced 12pt.
 
 ## $\LaTeX$ Math
 
-Surround it with $s:
+Surround it with `$`s:
 
 `$\int \frac{5x + 6}{3} dx$`
 
@@ -190,13 +190,10 @@ $$\int \frac{5x + 6}{3} dx$$
 
 ## Citations
 
-```sh
-pandoc -s example.md -o example.pdf --citeproc
-                    # if on ubuntu, --filter=pandoc-citeproc
-```
-
 :::::: {.columns}
 ::: {.column width="50%"}
+
+`example.md`
 
 ```md
 ---
@@ -214,6 +211,8 @@ inline citations.
 :::
 ::: {.column width="50%"}
 
+`example.bib`
+
 ```bibtex
 @misc{example,
   title     = {Example entry},
@@ -225,6 +224,21 @@ inline citations.
 }
 ```
 
+:::
+::::::
+
+## How it looks
+
+:::::: {.columns}
+::: {.column width="50%"}
+APA
+
+![](images/cite-apa.png)
+:::
+::: {.column width="50%"}
+MLA
+
+![](images/cite-mla.png)
 :::
 ::::::
 
@@ -255,24 +269,9 @@ csl: apa.csl
 
 CSLs are styles for BibTeX, from the [CSL Github repo](https://github.com/citation-style-language/styles)
 
-Tells Pandoc how to format citations & Works Cited
+Tells Pandoc how to format citations
 
 Need to use a different style? Just swap it out!
-
-## How it looks
-
-:::::: {.columns}
-::: {.column width="50%"}
-APA
-
-![](images/cite-apa.png)
-:::
-::: {.column width="50%"}
-MLA
-
-![](images/cite-mla.png)
-:::
-::::::
 
 ## Raw $\LaTeX$
 
