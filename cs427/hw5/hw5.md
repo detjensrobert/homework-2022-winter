@@ -23,13 +23,11 @@ successful distinguisher and explicitly compute its advantage.*
   \codebox{
     Given PRG:
   }
-  \framebox{
-    \codebox{
-      \underline{$H(s)$:} \\
-      \> $x := G(s)$ \\
-      \> $y := G(\bit{0}^\lambda)$ \\
-      \> return $x||y$
-    }
+  \fcodebox{
+    \underline{$H(s)$:} \\
+    \> $x := G(s)$ \\
+    \> $y := G(\bit{0}^\lambda)$ \\
+    \> return $x||y$
   }
 }
 \end{center}
@@ -37,9 +35,7 @@ successful distinguisher and explicitly compute its advantage.*
 This $H()$ is not secure, as the seed given to the second call to $G()$ is not
 uniformly sampled, instead fixed at $\zerol$ and directly outputted. Thus, an
 attacking library knows the seed to $G()$ and can distinguish between a uniformly
-sampled output and output from $G(\zerol)$. One such attack is shown below:
-
-
+sampled output and output from $G(\zerol)$. One such attack is shown below.
 \begin{center}
 \titlecodebox{$\A$}{
   $x || y :=$ QUERY() \\
@@ -75,22 +71,19 @@ Pr[\A \link \lib{prg-rand}^H \implies true] &= \frac{1}{2^{3\lambda}}
 
 \begin{center}
 \codebox{
-    \codebox{
-        Given PRG:
-    }
-    \framebox{
-        \codebox{
-            \underline{$H(s)$:} \\
-            \> $x := G(s)$ \\
-            \> $y := G(\bit{0}^\lambda)$ \\
-            \> return $x \oplus y$
-        }
-    }
+  \codebox{
+    Given PRG:
+  }
+  \fcodebox{
+    \underline{$H(s)$:} \\
+    \> $x := G(s)$ \\
+    \> $y := G(\bit{0}^\lambda)$ \\
+    \> return $x \oplus y$
+  }
 }
 \end{center}
 
-This $H()$ is secure. To prove this, we must show that $\lib{prg-real}^H$ is indistinguishable from $\lib{prg-rand}^H$. A hybrid proof follows:
-
+\begin{minipage}{.6\textwidth}
 \begin{center}
 \titlecodebox{$\lib{prg-real}^H$}{
   \underline{$QUERY_H():$} \\
@@ -99,16 +92,18 @@ This $H()$ is secure. To prove this, we must show that $\lib{prg-real}^H$ is ind
   \> $y := G(\zerol)$ \\
   \> return $x \xor y$
 }
-$\stackrel{?}{\equiv}$
+$\stackrel{?}{\indist}$
 \titlecodebox{$\lib{prg-rand}^H$}{
   \underline{$QUERY_H():$} \\
   \> $s \gets \bits^{3\lambda}$ \\
   \> return $s$
 }
 \end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+This $H()$ is secure. To prove this, we must show that $\lib{prg-real}^H$ is indistinguishable from $\lib{prg-rand}^H$. A hybrid proof follows.\end{minipage}
 
-The initial call to $G()$ can be brought out into a subroutine:
-
+\begin{minipage}{.6\textwidth}
 \begin{center}
 \fcodebox{
   \underline{$QUERY_H():$} \\
@@ -123,10 +118,12 @@ $\link$
   \> return $G(s)$
 }
 \end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+The initial call to $G()$ can be brought out into a subroutine.
+\end{minipage}
 
-We know that G is a secure PRG, and as such can replace $\lib{prg-real}^G$ with
-the indistinguishable $\lib{prg-rand}^G$.
-
+\begin{minipage}{.6\textwidth}
 \begin{center}
 \fcodebox{
   \underline{$QUERY_H():$} \\
@@ -141,9 +138,13 @@ $\link$
   \> return $s$
 }
 \end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+We know that G is a secure PRG, and as such can replace $\lib{prg-real}^G$ with
+the indistinguishable $\lib{prg-rand}^G$.
+\end{minipage}
 
-We can inline this subroutine back into $QUERY_H()$:
-
+\begin{minipage}{.6\textwidth}
 \begin{center}
 \fcodebox{
   \underline{$QUERY_H():$} \\
@@ -152,9 +153,12 @@ We can inline this subroutine back into $QUERY_H()$:
   \> return $x \xor y$
 }
 \end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+We can inline this subroutine back into $QUERY_H()$.
+\end{minipage}
 
-We can now break out the XOR and $x$ into another subroutine, defining $\ell = 3\lambda$:
-
+\begin{minipage}{.6\textwidth}
 \begin{center}
 \fcodebox{
   \underline{$QUERY_H():$} \\
@@ -168,9 +172,13 @@ $\link$
   \> return $k \xor m$
 }
 \end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+We can now break out the XOR and $x$ into another subroutine, defining
+$\ell = 3\lambda$.
+\end{minipage}
 
-$\lib{otp-rand}$ is equivalent to $\lib{otp-real}$, and can be substituted without changing the behaviour of the calling program:
-
+\begin{minipage}{.6\textwidth}
 \begin{center}
 \fcodebox{
   \underline{$QUERY_H():$} \\
@@ -184,9 +192,11 @@ $\link$
   \> return $c$
 }
 \end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+$\lib{otp-rand}$ is equivalent to $\lib{otp-real}$, and can be substituted without changing the behaviour of the calling program.\end{minipage}
 
-The subroutine can be inlined:
-
+\begin{minipage}{.6\textwidth}
 \begin{center}
 \fcodebox{
   \underline{$QUERY_H():$} \\
@@ -194,13 +204,7 @@ The subroutine can be inlined:
   \> \hl{$c \gets \bits^{3\lambda}$} \\
   \> return \hl{$c$}
 }
-\end{center}
-
-$y$ is no longer used and can be removed without affecting execution, and this
-hybrid library is now equivalent to $\lib{prg-rand}^H$:
-
-
-\begin{center}
+$\equiv$
 \fcodebox{
   \underline{$QUERY_H():$} \\
   \> \hl{$c \gets \bits^{3\lambda}$} \\
@@ -213,6 +217,12 @@ $\equiv$
   \> return $s$
 }
 \end{center}
+\end{minipage}
+\begin{minipage}{.4\textwidth}
+The subroutine can be inlined. $y$ is no longer used and can be removed without
+affecting execution, and this hybrid library is now equivalent to (and thus
+indistinguishable from) $\lib{prg-rand}^H$.
+\end{minipage}
 
 \pagebreak
 
@@ -220,17 +230,15 @@ $\equiv$
 
 \begin{center}
 \codebox{
-    \codebox{
-        Given PRG:
-    }
-    \framebox{
-        \codebox{
-            \underline{$H(s)$:} \\
-            \> $x||y||z := G(s)$ \\
-            \> $w := G(x)$ \\
-            \> return $x||y||z||w$
-        }
-    }
+  \codebox{
+    Given PRG:
+  }
+  \fcodebox{
+    \underline{$H(s)$:} \\
+    \> $x||y||z := G(s)$ \\
+    \> $w := G(x)$ \\
+    \> return $x||y||z||w$
+  }
 }
 \end{center}
 
@@ -238,9 +246,7 @@ This $H()$ is not secure, as the seed given to the second call to $G()$ is not
 uniformly sampled, instead reliant on $x$ which is exposed as part of the
 output. Thus, an attacking library knows the seed to $G()$ and can distinguish
 between a uniformly sampled output and the output from $G(x)$. One such attack
-is shown below:
-
-
+is shown below.
 \begin{center}
 \titlecodebox{$\A$}{
   $x || y || z || w_1 || w_2 || w_3 :=$ QUERY() \\
