@@ -212,14 +212,14 @@ $\equiv$
 }
 $\equiv$
 \colorbox{highlightcolor}{
-\titlecodebox{$\lib{tsss-R}^\Sigma$}{
-  \underline{Share($m_L, m_R, U$):} \\
-  \> if $|U| \ge 3$: return \bit{err} \\
-  \> $s_1 \gets \bits^\ell$ \\
-  \> $s_2 \gets \bits^\ell$ \\
-  \> $s_3 := s_1 \oplus s_2 \oplus m_R$ \\
-  \> return $\{s_i \ | \ i \in U\}$
-}
+  \titlecodebox{$\lib{tsss-R}^\Sigma$}{
+    \underline{Share($m_L, m_R, U$):} \\
+    \> if $|U| \ge 3$: return \bit{err} \\
+    \> $s_1 \gets \bits^\ell$ \\
+    \> $s_2 \gets \bits^\ell$ \\
+    \> $s_3 := s_1 \oplus s_2 \oplus m_R$ \\
+    \> return $\{s_i \ | \ i \in U\}$
+  }
 }
 \end{center}
 

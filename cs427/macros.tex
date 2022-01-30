@@ -19,6 +19,7 @@
 
 
 \newcommand{\?}{\stackrel{?}{=}}
+\newcommand{\xor}{\oplus}
 
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\C}{\mathcal{C}}
@@ -72,6 +73,7 @@
     }
 }
 \newcommand{\fcodebox}[1]{%
+    \fboxsep=3pt%
     \framebox{\codebox{#1}}%
 }
 \newcommand{\hlcodebox}[1]{%
@@ -89,6 +91,12 @@
     }
 }
 
+\newcommand{\olfcodebox}[1]{%
+    \colorbox{highlightcolor}{\fcodebox{#1}}%
+}
+\newcommand{\oltitlecodebox}[2]{%
+    \colorbox{highlightcolor}{\titlecodebox{#1}{#2}}%
+}
 
 %% highlighting
 \newcommand{\basehighlight}[1]{\colorbox{highlightcolor}{\color{highlighttextcolor}#1}}
