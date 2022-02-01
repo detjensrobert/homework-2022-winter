@@ -1,0 +1,27 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Sun Jan 30 19:03:56 2022
+Invocation: foremost -i images/fergus.jpg -v 
+Output directory: /home/detjensrobert/repos/homework-2022-winter/cs477/assgn4/output
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: images/fergus.jpg
+Start: Sun Jan 30 19:03:56 2022
+Length: 511 KB (523648 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.jpg 	     303 KB 	          0 	 
+1:	00000629.jpg 	      89 KB 	     322422 	 
+2:	00000832.jpg 	      79 KB 	     426071 	 
+3:	00000606.pdf 	     208 KB 	     310299 	 
+Finish: Sun Jan 30 19:03:56 2022
+
+4 FILES EXTRACTED
+	
+jpg:= 3
+pdf:= 1
+------------------------------------------------------------------
+
+Foremost finished at Sun Jan 30 19:03:56 2022
