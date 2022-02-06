@@ -1,6 +1,6 @@
 [submodule "cs352/group-project"]
-	path = cs352/group-project
+	path = cs352-usability/group-project
 	url = git@github.com:detjensrobert/cs352-usability-group-project.git
 [submodule "cs427/final-project"]
-	path = cs427/final-project
+	path = cs427-crypto/final-project
 	url = git@github.com:lyellread/cs427-final-project.git
