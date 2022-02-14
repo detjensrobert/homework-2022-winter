@@ -78,9 +78,9 @@ To prove this, a hybrid proof is used to show that these libraries are indeed di
   \> return $c$
 }
 \qquad
-\begin{minipage}{0.3\textwidth}
-$m || r$ is pulled out into a new variable. This has no change on the effect of the program.
-\end{minipage}
+\desc{
+  $m || r$ is pulled out into a new variable. This has no change on the effect of the program.
+}
 \end{center}
 
 \begin{center}
