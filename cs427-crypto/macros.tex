@@ -23,14 +23,23 @@
 
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
 \newcommand{\K}{\mathcal{K}}
 \newcommand{\M}{\mathcal{M}}
+\newcommand{\T}{\mathcal{T}}
 \newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\Seen}{\mathcal{S}}
+
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\mb}[1]{\mathbb{#1}}
 
 \newcommand{\Enc}{\text{\sf Enc}}
 \newcommand{\Dec}{\text{\sf Dec}}
 \newcommand{\KeyGen}{\text{\sf KeyGen}}
-\newcommand{\Eavesdrop}{\text{\sf Eavesdrop}}
+
+\newcommand{\Eavesdrop}{\subname{Eavesdrop}}
+\newcommand{\MAC}{\subname{MAC}}
 
 % fancy script L
 \usepackage[mathscr]{euscript}
@@ -50,6 +59,8 @@
 \definecolor{highlighttextcolor}{HTML}{000000}
 \definecolor{bitcolor}{HTML}{a91616}
 
+%% comments
+\newcommand{\comment}[1]{\sf \color{gray} #1}
 
 %%% boxes for writing libraries/constructions
 \usepackage{varwidth}
@@ -117,6 +128,8 @@
 
 \newcommand{\zerol}{\bit{0}^\lambda}
 \newcommand{\onel}{\bit{1}^\lambda}
+
+\newcommand{\err}{\bit{err }}
 
 % minipage caption macro to put proof step description next to step
 \newcommand{\desc}[1]{
