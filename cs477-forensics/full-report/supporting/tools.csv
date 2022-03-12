@@ -1,0 +1,9 @@
+**Application Name**,**Version**,**Used For**
+Autopsy,4.19.3,"Drive indexing, data and file extraction"
+AccessData FTK Imager,4.5.0.3,"Drive imaging, mounting, integrity verification"
+Malwarebytes Antivirus,4.5.0.152,"Virus scanning of workstation and imaged drive"
+HxD,2.5.0.0,"Hex/binary viewer"
+Eric Zimmerman's Registry Explorer,1.6.0.0,"Registry hive viewer"
+Eric Zimmerman's ShellBags Explorer,2.0.0.0,"Registry shellbag viewer"
+DCode,5.5.21194.40,"Registry binary time string conversion"
+Foremost,1.5.7,"Steganographic file analysis and extraction"
