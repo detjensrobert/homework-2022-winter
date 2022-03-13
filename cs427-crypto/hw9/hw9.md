@@ -44,8 +44,6 @@ header-includes:
 
 $\Sigma'$ is CCA-secure if the following libraries are indistinguishable:
 
-\newcommand{\Seen}{\mathcal{S}}
-
 \begin{center}
 \titlecodebox{$\lib{cca-L}^{\Sigma'}$}{
   $k_1, k_2 \gets \Sigma'.\KeyGen$ \\

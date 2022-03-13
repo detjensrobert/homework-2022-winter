@@ -2,3 +2,6 @@ latex.out
 texout
 *.pdf
 .vscode
+
+# libreoffice lock/swapfile
+.~lock.*
