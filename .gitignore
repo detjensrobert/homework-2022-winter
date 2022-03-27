@@ -5,3 +5,6 @@ texout
 
 # libreoffice lock/swapfile
 .~lock.*
+
+# pandoc pres
+*.html
